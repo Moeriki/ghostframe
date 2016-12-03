@@ -1,0 +1,4 @@
+<style>html,body,iframe{margin:0;padding:0;border:0;}</style>
+<script>'use strict';window.onload=function(){'use strict';function a(){var f=new MessageChannel;c.postMessage('ghostframe','*',[f.port2]),f.port1.onmessage=function(g){var h=void 0;try{h=JSON.parse(g.data)}catch(n){return void console.warn('ghostframe received data that is not JSON: '+g.data)}var _h=h,i=_h.location,j=_h.title,k=i.match(/\w+:\/\/[^/]+\/([^?#]*)(.*)/);if(!k)return void console.warn('ghostframe received data that is not a URL: "'+g.data+'"');var l=k[1],m=k[2];document.title=j,window.history.pushState(l,j,'/'+l+m)}}if('MessageChannel'in window&&'postMessage'in window&&'history'in window){var b=document.getElementById('ghost'),c=b.contentWindow,d=b.getAttribute('src'),e=(window.location+'').match(/\w+:\/\/[^/]+\/(.*)/)[1];e.length?(b.setAttribute('src',d+'/'+e),b.onload=a):a()}};</script>
+
+<iframe id="ghost" src="http://example.com" width="100%" height="100%"></iframe>

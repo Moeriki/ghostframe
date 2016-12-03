@@ -1,0 +1,6 @@
+dist/host/
+lib/
+node_modules/
+.editorconfig
+.gitignore
+.npmignore

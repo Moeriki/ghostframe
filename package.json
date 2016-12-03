@@ -1,0 +1,30 @@
+{
+  "name": "ghostframe",
+  "version": "1.0.0",
+  "description": "Host an iFrame while mirroring the source's URL changes and title.",
+  "keywords": [
+    "iframe"
+  ],
+  "author": "Dieter Luypaert <dieterluypaert@gmail.com>",
+  "license": "MIT",
+  "main": "dist/client/ghostframe.min.js",
+  "scripts": {
+    "lint": "eslint index.js lib/ scripts/",
+    "build:client": "babel lib/client/ghostframe.js --out-file dist/client/ghostframe.min.js --presets=es2015,babili --no-comments --plugins=transform-es2015-modules-umd",
+    "build:host": "node scripts/build-host",
+    "build": "npm run lint && npm run build:client && npm run build:host",
+    "test": "live-server --entry-file=dist/host/index.html"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-plugin-transform-es2015-modules-umd": "~6.18.0",
+    "babel-preset-babili": "^0.0.9",
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "~3.11.1",
+    "eslint-config-muriki": "~8.0.0",
+    "eslint-plugin-import": "~2.2.0",
+    "eslint-plugin-node": "~3.0.5",
+    "live-server": "^1.1.0"
+  }
+}
